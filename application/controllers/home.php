@@ -29,6 +29,18 @@ class Home extends CI_Controller{
         $this->load->view('reservation');
     }
 
+    public function reserved(){
+        $this->load->view('reserved');
+    }
+
+    public function reservation1(){
+        $this->load->view('reservation1');
+    }
+
+    public function kontakt(){
+        $this->load->view('kontakt');
+    }
+
     public function login_validation(){
         
 

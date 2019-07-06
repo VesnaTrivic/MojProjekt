@@ -5,8 +5,8 @@
     <h1 class="display-3">Kozmetički salon "Ljepota"</h1>
     <p class="lead">Web aplikacija za rezervaciju kozmetičkih tretmana</p>
     <hr class="my-4">
-    <h3>Dobrodošli!</h3>
-    </div>
+    <h3>Dobrodošli <?php echo $this->session->userdata('username'); ?>!</h3>
+</div>
 
 <div class="container">
     <h2>Rezervacija</h2>
@@ -18,43 +18,49 @@
             <li><a href="<?php echo base_url(). "kontakt"; ?>">Kontakt</a></li>
             <li><a href="<?php echo base_url(). "index.php/home/logout"; ?>">Odjava</a></li>
         </ul>
-    </div>
+    </div><br><br><br>
 
     <div class="row">
-        <div class="card mb-3">
-        <h3 class="card-header">Nadogradnja noktiju</h3>
-            <div class="card-body">
-            <h5 class="card-title">20.00km</h5>
-         </div>
-            <img style="height: 200px; width: 300px; display: block;" src="<?= base_url("assets/images/1.jpg"); ?>" alt="Card image">
-    </div>
+        <div class="col-sm-4">
+            <div class="room-container">
+            <img src="<?php echo base_url(); ?>assets/images/9.jpg" width="250" height="250">
+                <h5>Šminka</h5>
+                <h3>30.00km</h3>
+                <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#login-modal">
+                <a href="<?php echo base_url(). "index.php/home/reservation1"; ?>"> Rezerviraj</a></button><br><br>
+            </div>
+        </div>
 
-    <div class="row">
-        <div class="card mb-3">
-        <h3 class="card-header">Nadogradnja noktiju</h3>
-            <div class="card-body">
-            <h5 class="card-title">20.00km</h5>
-         </div>
-            <img style="height: 200px; width: 300px; display: block;" src="<?= base_url("assets/images/1.jpg"); ?>" alt="Card image">
-    </div>
+        <div class="col-sm-4">
+            <div class="room-container">
+            <img src="<?php echo base_url(); ?>assets/images/13.jpg" width="250" height="250">
+                <h5>Frizura</h5>
+                <h3>30.00km</h3>
+                <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="reservation-modal">
+                        <a href="<?php echo base_url(). "index.php/home/reservation1"; ?>"> Rezerviraj</a></button>
+            </div>
+        </div>
 
-    <div class="row">
-        <div class="card mb-3">
-        <h3 class="card-header">Nadogradnja noktiju</h3>
-            <div class="card-body">
-            <h5 class="card-title">20.00km</h5>
-         </div>
-            <img style="height: 200px; width: 300px; display: block;" src="<?= base_url("assets/images/1.jpg"); ?>" alt="Card image">
-    </div>
+        <div class="col-sm-4">
+            <div class="room-container">
+            <img src="<?php echo base_url(); ?>assets/images/2.jpg" width="250" height="250">
+                <h5>Nokti</h5>
+                <h3>20.00km</h3>
+                <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#login-modal">
+                        <a href="<?php echo base_url(). "index.php/home/reservation1"; ?>"> Rezerviraj</a></button>
+            </div>
+        </div>
 
-    <div class="row">
-        <div class="card mb-3">
-        <h3 class="card-header">Nadogradnja noktiju</h3>
-            <div class="card-body">
-            <h5 class="card-title">20.00km</h5>
-         </div>
-            <img style="height: 200px; width: 300px; display: block;" src="<?= base_url("assets/images/1.jpg"); ?>" alt="Card image">
+        <div class="col-sm-4">
+            <div class="room-container">
+            <img src="<?php echo base_url(); ?>assets/images/14.jpeg" width="250" height="250">
+                <h5>Masaža</h5>
+                <h3>20.00km</h3>
+                <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#login-modal">
+                        <a href="reservation/create_reservation1"> Rezerviraj</a></button>
+            </div>
+        </div>
     </div>
 </div>
-                    
+
 <?php $this->load->view('static/footer'); ?>

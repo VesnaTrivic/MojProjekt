@@ -12,7 +12,7 @@
 
         public function create_product(){
             $this->model_products->create_data();
-            redirect("crud_products");
+            redirect('crud_products');
        }
 
        public function edit_product($product_id){

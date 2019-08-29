@@ -1,41 +1,131 @@
 <!DOCTYPE html>
 <?php $this->load->view('static/header.php'); ?>
-    <div class="jumbotron">
-    <h1 class="display-3">Kozmetički salon "Ljepota"</h1>
-    <p class="lead">Web aplikacija za rezervaciju kozmetičkih tretmana</p>
-    <hr class="my-4">
-    <h3>Dobrodošli!</h3>
-    </div>
 
-    <div class="container">
-        <div class="col-sm-4"><h1>Kozmetički salon "Ljepota"</h1></div>
-            <div id="menubar">
-                <ul>
-                    <li><a href="<?php echo base_url(). "index.php/home"; ?>">Početna</a></li>
-                    <li><a href="<?php echo base_url(). "index.php/home/reservation"; ?>">Rezervacije</a></li>
-                    <li><a href="<?php echo base_url(). "Vizija.pdf"; ?>">Vizija</a></li>
-                    <li><a href="<?php echo base_url(). "index.php/home/kontakt"; ?>">Kontakt</a></li>
-                    <li><a href="<?php echo base_url(). "index.php/home/login"; ?>">Prijava/Registracija</a></li>
-                </ul>
-            </div>
+<?php $this->load->view('static/navbar.php'); ?>
+
+    <style>
+        * {box-sizing: border-box;}
+            body {font-family: Verdana, sans-serif;}
+            .mySlides {display: none;}
+            img {vertical-align: middle;}
+
+        /* Slideshow container */
+        .slideshow-container {
+            max-width: 1000px;
+            position: relative;
+            margin: auto;
+        }
+
+        /* Caption text */
+        .text {
+            color: #f2f2f2;
+            font-size: 15px;
+            padding: 8px 12px;
+            position: absolute;
+            bottom: 8px;
+            width: 100%;
+            text-align: center;
+        }
+
+        /* Number text (1/3 etc) */
+        .numbertext {
+            color: #f2f2f2;
+            font-size: 12px;
+            padding: 8px 12px;
+            position: absolute;
+            top: 0;
+        }
+
+        /* The dots/bullets/indicators */
+        .dot {
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+
+        .active {
+            background-color: #717171;
+        }
+
+        /* Fading animation */
+        .fade {
+            -webkit-animation-name: fade;
+            -webkit-animation-duration: 1.5s;
+            animation-name: fade;
+            animation-duration: 1.5s;
+        }
+
+        @-webkit-keyframes fade {
+            from {opacity: .4} 
+            to {opacity: 1}
+        }
+
+        @keyframes fade {
+            from {opacity: .4} 
+            to {opacity: 1}
+        }
+
+        /* On smaller screens, decrease text size */
+        @media only screen and (max-width: 300px) {
+            .text {font-size: 11px}
+        }
+    </style>
+
+    <div class="slideshow-container">
+
+        <div class="mySlides fade">
+            <div class="numbertext">1 / 3</div>
+            <img src="<?=base_url("assets/images/10.jpg"); ?>" style="width:100%">
+            <div class="text">Masaža</div>
         </div>
-    </div>
 
-    <div class="container">    
-        <div class="col-sm-6">
-        <p>Kozmetički salon "Ljepota" vam nudi široku lepezu usluga u kozmetici, pedikuri i manikuri. Težnja nam je 
-			da osjetite djelić opuštajućeg ugođaja za vrijeme korištenja bilo kojeg od naših vrhunskih tretmana. 
-			Uvođenje novih, modernijih kozmetičkih usluga garancija je kvaliteta i pružanja vrhunskih kozmetičkih
-			tretmana koristeći pritom samo preparate vrhunske provjere i profesionalne kvalitete.<br><br>
-
-			Naša otvorenost i susretljivost pomoći će vam pronaći kozmetičke usluge i kombinaciju tretmana koji 
-			baš Vama odgovaraju. Primjenjujući samo visoko kvalitetne i profesionalne preparate kozmetičkih kuća,
-			uspješno rješavamo probleme najosjetljivije mladenačke kože, ali i kože zrelije dobi.
-		</p>
-	    <h4>Očekujemo Vas s veseljem!</h4>
+        <div class="mySlides fade">
+            <div class="numbertext">2 / 3</div>
+            <img src="<?=base_url("assets/images/11.jpg"); ?>" style="width:100%">
+            <div class="text">Tretmani lica</div>
         </div>
 
-        <img src="<?= base_url("assets/images/10.jpg"); ?>">
+        <div class="mySlides fade">
+            <div class="numbertext">3 / 3</div>
+            <img src="<?=base_url("assets/images/8.jpg"); ?>" style="width:100%">
+            <div class="text">Pedikir</div>
+        </div>
+
+    </div>
+    <br>
+
+    <div style="text-align:center">
+        <span class="dot"></span> 
+        <span class="dot"></span> 
+        <span class="dot"></span> 
     </div>
 
-<?php $this->load->view('static/header.php'); ?>
+    <script>
+    var slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("dot");
+        for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";  
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {slideIndex = 1}    
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex-1].style.display = "block";  
+        dots[slideIndex-1].className += " active";
+        setTimeout(showSlides, 2000); // Change image every 2 seconds
+    }
+    </script>
+
+</body>
+</html>
+<?php $this->load->view('static/footer.php'); ?>

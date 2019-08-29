@@ -10,7 +10,6 @@ class Home extends CI_Controller{
 
     public function index(){
         $this->load->view('home');
-        $this->login();
     }
 
     public function login(){
@@ -22,45 +21,66 @@ class Home extends CI_Controller{
     }
 
     public function admin(){
-        $this->load->view('admin');
+        if($this->session->userdata('user_type')=="admin"){
+            $this->load->view('admin');
+        }else{
+            echo "Error code: 403. Pristup je dozvoljen samo adminima.";
+        }
     }
 
     public function reservation(){
-        $this->load->view('reservation');
-    }
-
-    public function reserved(){
-        $this->load->view('reserved');
+        if($this->session->userdata('user_type')=="admin"){
+            $this->load->view('reservation');
+        }elseif($this->session->userdata('user_type')=="user"){
+            $this->load->view('reservation');
+        }else{
+            $this->load->view('register');
+        }
     }
 
     public function reservation1(){
         $this->load->view('reservation1');
     }
 
-    public function kontakt(){
-        $this->load->view('kontakt');
+    public function contact(){
+        $this->load->view('contact');
+    }
+
+    public function aboutUs(){
+        $this->load->view('aboutUs');
+    }
+
+    public function search(){
+        $this->load->view('search');
+    }
+
+    public function user_information(){
+        $this->load->view('user_information');
     }
 
     public function login_validation(){
-        
+
+        $this->load->library('form_validation');
 
         $this->form_validation->set_rules('username', 'Korisničko ime', 'required|callback_validate_credentials');
-        $this->form_validation->set_rules('password', 'Lozinka', 'required');
+        $this->form_validation->set_rules('password', 'Lozinka', 'required|callback_validate_credentials');
 
         $checklogin = $this->model_users->can_log_in();
 
         if($checklogin){
             foreach($checklogin as $row);
             $this->session->set_userdata('username', $row->username);
+            $this->session->set_userdata('password', $row->password);
             $this->session->set_userdata('user_type', $row->user_type);
 
             if($this->session->userdata('user_type')=="admin"){
                 redirect('home/admin');
             }elseif($this->session->userdata('user_type')=="user"){
                 redirect('home/reservation');
-            }else{
-                $this->load->view('login');
             }
+        }else{
+            $data['error'] = "Korisničko ime ili lozinka nisu točni!";
+            $this->load->view('login', $data);
         }
     }
 
@@ -96,7 +116,7 @@ class Home extends CI_Controller{
     public function validate_credentials(){
         $this->load->model('model_users');
 
-        if($this->model_users->can_log_in()){
+        if($this->model_users->can_login()){
             return true;
         }else{
             $this->form_validation->set_message('validate_credentials', 'Pogrešno korisničko ime i/ili lozinka');

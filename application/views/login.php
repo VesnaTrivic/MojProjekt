@@ -1,17 +1,12 @@
 <!DOCTYPE html>
 <?php $this->load->view('static/header.php'); ?>
 
-<div class="jumbotron">
-    <h1 class="display-3">Kozmetički salon "Ljepota"</h1>
-    <p class="lead">Web aplikacija za rezervaciju kozmetičkih tretmana</p>
-    <hr class="my-4">
-    <h3>Dobrodošli!</h3>
-    </div>
+<?php $this->load->view('static/navbar.php'); ?>
 
 <div class="container">
 <h1>Prijava:</h1>
 <p><b>Niste prijavljeni, ako nemate račun, <a href="<?php echo base_url(). "index.php/home/register" ?>">REGISTRIRAJTE SE</a></b></p>
-<?php echo validation_errors(); ?>
+<?php echo validation_errors('<div class="alert alert-danger">', '</div>'); ?>
 <?php echo form_open('home/login_validation'); ?>
     <div class='row'>
         <div class="col-md-4 col-md-offset-4">
@@ -24,6 +19,13 @@
             <button type="submit" class="btn btn-primary">Prijava</button>
         </div>
     </div>
+
+    <h5 style: font-weight = bold;>
+    <?php if(isset($error)){
+        echo $error;
+    }
+    ?>
+    </h5>
 
 <?php echo form_close(); ?>
 </div>

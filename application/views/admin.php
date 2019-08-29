@@ -1,12 +1,7 @@
 <!DOCTYPE html>
 <?php $this->load->view('static/header'); ?>
 
-<div class="jumbotron">
-    <h1 class="display-3">Kozmetički salon "Ljepota"</h1>
-    <p class="lead">Web aplikacija za rezervaciju kozmetičkih tretmana</p>
-    <hr class="my-4">
-    <h3>Dobrodošli <?php echo $this->session->userdata('username'); ?>!</h3>
-</div>
+<?php $this->load->view('static/navbar.php'); ?>
 
 <div class="container">
 
@@ -19,7 +14,7 @@
     <a class="navbar-brand" href="<?php echo base_url(). "index.php/crud_users"; ?>">Uređivanje korisnika</a>
     </nav><br><br>
 
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">Dodaj tretman</button>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">Dodaj tretman</button><br><br>
     <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">

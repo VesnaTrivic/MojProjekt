@@ -1,12 +1,7 @@
 <!DOCTYPE html>
 <?php $this->load->view('static/header.php'); ?>
 
-<div class="jumbotron">
-    <h1 class="display-3">Kozmetički salon "Ljepota"</h1>
-    <p class="lead">Web aplikacija za rezervaciju kozmetičkih tretmana</p>
-    <hr class="my-4">
-    <h3>Dobrodošli!</h3>
-    </div>
+<?php $this->load->view('static/navbar.php'); ?>
 
 <div class="container">
 <h1>Registracija: </h1>

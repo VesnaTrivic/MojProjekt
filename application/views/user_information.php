@@ -8,6 +8,7 @@
         <h2>Vaš profil</h2>
         <h5>Korisničko ime: <?php echo $this->session->userdata('username'); ?></h5>
         <h5>Tip korisnika: <?php echo $this->session->userdata('user_type'); ?></h5>
+        
 	</div>
 
 </div>

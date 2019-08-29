@@ -9,10 +9,13 @@
         <link rel="stylesheet" type="text/css" href="<?= base_url('assets/css/bootstrap.css'); ?>">
         <script type="text/javascript" src="<?= base_url('assets/js/jquery-3.4.1.min.js'); ?>"></script>
         <script type="text/javascript" src="<?=base_url('assets/js/bootstrap.js'); ?>"></script>
+        <link rel="stylesheet" type="text/css" href="<? base_url('assets/css/fontawesome.min.css'); ?>">
         <link type="text/javascript" src="https://bootswatch.com/journal/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="<?= base_url('assets/css/style.css'); ?>">
-        
-        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <link type="text/css" rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
         
          <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

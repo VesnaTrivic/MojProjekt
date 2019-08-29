@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <?php $this->load->view('static/header'); ?><br><br>
 
+<?php $this->load->view('static/navbar.php'); ?>
+
 <div class="container">
     <form method="post" action="<?php echo site_url('crud_products/update_product') ?>/<?php echo $row->product_id; ?> ">
         <div class="form-group">
